@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Определяем структуру Human с полями и методами
 type Human struct {
 	firstName string
 	lastName  string
@@ -28,11 +29,11 @@ func (h Human) Code() {
 }
 
 type Action struct {
-	Human
+	Human // реализуем встраивание структуры Human в структуру Action
 }
 
 func main() {
-	action := Action{Human: Human{firstName: "Mike"}}
-	fmt.Println(action.firstName)
-	action.Code()
+	action := Action{Human: Human{firstName: "Mike"}} // Задаем имя человеку
+	fmt.Println(action.firstName) // Теперь action обладаем теми же полями
+	action.Code() // и методами
 }
